@@ -1,0 +1,15 @@
+[package]
+name = "gpt-sovits-desktop"
+version.workspace = true
+edition.workspace = true
+publish = false
+
+[[bin]]
+name = "gpt-sovits"
+path = "main.rs"
+
+[dependencies]
+anyhow.workspace = true
+gpt-sovits.path = ".."
+rodio = {workspace = true,features = ["playback"]}
+tokio = {workspace = true, features = ["macros", "rt-multi-thread"] }

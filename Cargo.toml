@@ -1,0 +1,58 @@
+[package]
+name = "gpt-sovits"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/mzdk100/GPT-SoVITS.git"
+
+[workspace]
+default-members = ["desktop"]
+members = ["desktop", "mobile"]
+resolver = "3"
+
+[workspace.dependencies]
+anyhow = "1.0.99"
+arpabet = "2.0.0"
+async-stream = "0.3.6"
+futures = "0.3.31"
+jieba-rs = "0.8.1"
+log = "0.4.28"
+ndarray = "0.16.1"
+ort = "2.0.0-rc.10"
+pest = "2.8.2"
+pest_derive = "2.8.2"
+rand = "0.10.0-rc.0"
+regex = "1.11.2"
+rodio = { version = "0.21.1", default-features = false }
+serde = "1.0.224"
+serde_json = "1.0.145"
+tokenizers = { version = "0.22.0", default-features = false }
+tokio = "1.47.1"
+unicode-segmentation ="1.12.0"
+
+[dependencies]
+arpabet.workspace = true
+async-stream.workspace = true
+futures.workspace = true
+jieba-rs.workspace = true
+log.workspace = true
+ndarray.workspace = true
+ort.workspace = true
+pest.workspace = true
+pest_derive.workspace = true
+rand.workspace = true
+regex.workspace = true
+rodio = { workspace = true, features = ["mp3", "wav"] }
+serde.workspace = true
+serde_json.workspace = true
+tokenizers = {workspace = true,features = ["onig"]}
+tokio = {workspace = true, features = ["fs"]}
+unicode-segmentation.workspace = true

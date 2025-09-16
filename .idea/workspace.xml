@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml">
+      <package file="$PROJECT_DIR$">
+        <feature name="default" enabled="true" />
+      </package>
+      <package file="$PROJECT_DIR$/desktop">
+        <feature name="default" enabled="true" />
+      </package>
+      <package file="$PROJECT_DIR$/mobile">
+        <feature name="default" enabled="true" />
+      </package>
+    </cargoProject>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2ce08510-ca9d-45cd-a9cc-24e15c9a93b2" name="更改" comment="Add intent actions for Android application activity">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/bajie.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/hello_in_cn.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/ref.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop/Cargo.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop/main.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile/.cargo/config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile/Cargo.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile/app.jks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile/build.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile/libs/arm64-v8a/libonnxruntime.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile/main.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/error.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logits_sampler.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/onnx_builder.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/bert.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/dict.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/dict_mono_chars.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/dict_poly_chars.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/en.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/en/g2p_en.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/en/tokenizer.mini-bart-g2p.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/g2pw_tokenizer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/num.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/phone_symbol.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/rule.pest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/symbols_v2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/utils.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/zh.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/zh/dict_poly_index_list.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/zh/g2pw.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/zh/jyut6ping3.words.dict.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/zh/jyutping_dictionary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/zh/jyutping_list.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/zh/split.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/zh/yue.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text/zh_word_dict.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mzdk100&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mzdk100/GPT-SoVITS&quot;,
+    &quot;accountId&quot;: &quot;65557e06-0b15-4b2e-83ab-88003af6819e&quot;
+  }
+}</component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="tuho4fr5" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2gqtphdYhx99fRaX00MhOf3IsK1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Cargo.Run.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test text::tests::test_split_text.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/workspace/GPT-SoVITS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Cargo.Run">
+    <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" focusToolWindowBeforeRun="true">
+      <option name="buildProfileId" value="dev" />
+      <option name="command" value="run -p gpt-sovits-desktop" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="false" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test text::tests::test_split_text" type="CargoCommandRunConfiguration" factoryName="Cargo Command" focusToolWindowBeforeRun="true" temporary="true">
+      <option name="buildProfileId" value="test" />
+      <option name="command" value="test --package gpt-sovits --lib text::tests -- --nocapture" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="false" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Test text::tests::test_split_text" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="D:/rust/cargo/bin" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="2ce08510-ca9d-45cd-a9cc-24e15c9a93b2" name="更改" comment="" />
+      <created>1716437119237</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716437119237</updated>
+      <workItem from="1716437120726" duration="32800000" />
+      <workItem from="1716563898996" duration="1887000" />
+      <workItem from="1716644795064" duration="128000" />
+      <workItem from="1739725661628" duration="1654000" />
+      <workItem from="1739755525267" duration="27851000" />
+      <workItem from="1739905868345" duration="6285000" />
+      <workItem from="1739955614188" duration="9094000" />
+      <workItem from="1739999991866" duration="233000" />
+      <workItem from="1740000231020" duration="8479000" />
+      <workItem from="1740044390138" duration="1989000" />
+      <workItem from="1757656965010" duration="70000" />
+      <workItem from="1757657044863" duration="7034000" />
+      <workItem from="1757700115162" duration="35255000" />
+      <workItem from="1757871296205" duration="1962000" />
+      <workItem from="1757874816534" duration="12159000" />
+      <workItem from="1757903881339" duration="2625000" />
+      <workItem from="1757906731808" duration="150000" />
+      <workItem from="1757907055682" duration="8980000" />
+      <workItem from="1757964796182" duration="12998000" />
+      <workItem from="1757980127689" duration="6940000" />
+    </task>
+    <task id="LOCAL-00001" summary="初始化项目结构及移动端推理实现">
+      <option name="closed" value="true" />
+      <created>1739999617802</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739999617802</updated>
+    </task>
+    <task id="LOCAL-00002" summary="添加Apache License及IDE配置文件">
+      <option name="closed" value="true" />
+      <created>1740001214926</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740001214926</updated>
+    </task>
+    <task id="LOCAL-00003" summary="升级依赖项。">
+      <option name="closed" value="true" />
+      <created>1757721463671</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757721463671</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add intent actions for Android application activity">
+      <option name="closed" value="true" />
+      <created>1757873303147</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757873303147</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="初始化项目结构及移动端推理实现" />
+    <MESSAGE value="        初始化项目结构及移动端推理实现" />
+    <MESSAGE value="添加Apache License及IDE配置文件" />
+    <MESSAGE value="升级依赖项。" />
+    <MESSAGE value="Add intent actions for Android application activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add intent actions for Android application activity" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="GPT-SoVITS" type="b2602c69:ProjectViewProjectNode" />
+        <item name="dir{file://F:/workspace/GPT-SoVITS}" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
+  </component>
+</project>

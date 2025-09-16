@@ -2,6 +2,7 @@
 name = "gpt-sovits-mobile"
 version.workspace = true
 edition.workspace = true
+publish = false
 
 [package.metadata.android]
 apk_name = "gpt-sovits"
@@ -38,13 +39,11 @@ test = false
 
 [target.'cfg(target_os = "android")'.dependencies]
 anyhow.workspace = true
+gpt-sovits.path = ".."
 ndk-glue = "0.7.0"
 mobile-entry-point = "0.1.1"
-rodio = {workspace = true, features = ["playback"]}
+rodio = {workspace = true, features = ["playback"] }
 tokio = {workspace = true,features = ["rt-multi-thread"]}
-
-[dependencies.gpt-sovits]
-path = ".."
 
 [build-dependencies]
 cargo-emit = "0.2.1"

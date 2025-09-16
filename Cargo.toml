@@ -5,6 +5,10 @@ edition.workspace = true
 license.workspace = true
 readme.workspace = true
 repository.workspace = true
+description = "A Rust implementation of GPT-SoVITS for high-performance voice synthesis and voice cloning"
+keywords = ["tts", "voice-synthesis", "voice-cloning", "speech", "ai"]
+categories = ["multimedia", "multimedia::audio", "science"]
+authors = ["SmileSky <mzdk100@foxmail.com>"]
 
 [workspace.package]
 version = "0.1.0"

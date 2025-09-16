@@ -17,10 +17,11 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ce08510-ca9d-45cd-a9cc-24e15c9a93b2" name="更改" comment="Release first version.">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="2ce08510-ca9d-45cd-a9cc-24e15c9a93b2" name="更改" comment="Add comprehensive README files for desktop and mobile implementations">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/rust.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/rust.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/Cargo.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +60,9 @@
 }</component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="tuho4fr5" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -163,7 +167,7 @@
       <workItem from="1757906731808" duration="150000" />
       <workItem from="1757907055682" duration="8980000" />
       <workItem from="1757964796182" duration="12998000" />
-      <workItem from="1757980127689" duration="8143000" />
+      <workItem from="1757980127689" duration="10981000" />
     </task>
     <task id="LOCAL-00001" summary="初始化项目结构及移动端推理实现">
       <option name="closed" value="true" />
@@ -205,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757988401710</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add comprehensive README files for desktop and mobile implementations">
+      <option name="closed" value="true" />
+      <created>1757989457405</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1757989457405</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +241,8 @@
     <MESSAGE value="升级依赖项。" />
     <MESSAGE value="Add intent actions for Android application activity" />
     <MESSAGE value="Release first version." />
-    <option name="LAST_COMMIT_MESSAGE" value="Release first version." />
+    <MESSAGE value="Add comprehensive README files for desktop and mobile implementations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add comprehensive README files for desktop and mobile implementations" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

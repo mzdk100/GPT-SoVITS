@@ -17,50 +17,10 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ce08510-ca9d-45cd-a9cc-24e15c9a93b2" name="更改" comment="Add intent actions for Android application activity">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bajie.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/hello_in_cn.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/ref.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/desktop/main.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile/.cargo/config.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile/app.jks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile/build.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile/libs/arm64-v8a/libonnxruntime.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile/main.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/error.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logits_sampler.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/onnx_builder.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/bert.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/dict.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/dict_mono_chars.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/dict_poly_chars.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/en.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/en/g2p_en.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/en/tokenizer.mini-bart-g2p.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/g2pw_tokenizer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/num.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/phone_symbol.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/rule.pest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/symbols_v2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/utils.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/zh.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/zh/dict_poly_index_list.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/zh/g2pw.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/zh/jyut6ping3.words.dict.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/zh/jyutping_dictionary.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/zh/jyutping_list.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/zh/split.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/zh/yue.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/text/zh_word_dict.json" afterDir="false" />
+    <list default="true" id="2ce08510-ca9d-45cd-a9cc-24e15c9a93b2" name="更改" comment="Release first version.">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +163,7 @@
       <workItem from="1757906731808" duration="150000" />
       <workItem from="1757907055682" duration="8980000" />
       <workItem from="1757964796182" duration="12998000" />
-      <workItem from="1757980127689" duration="6940000" />
+      <workItem from="1757980127689" duration="8143000" />
     </task>
     <task id="LOCAL-00001" summary="初始化项目结构及移动端推理实现">
       <option name="closed" value="true" />
@@ -237,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757873303147</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Release first version.">
+      <option name="closed" value="true" />
+      <created>1757988401710</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1757988401710</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +228,8 @@
     <MESSAGE value="添加Apache License及IDE配置文件" />
     <MESSAGE value="升级依赖项。" />
     <MESSAGE value="Add intent actions for Android application activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add intent actions for Android application activity" />
+    <MESSAGE value="Release first version." />
+    <option name="LAST_COMMIT_MESSAGE" value="Release first version." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

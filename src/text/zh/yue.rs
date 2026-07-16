@@ -40,15 +40,12 @@ fn jyuping_to_initials_finals_tones(jyuping_syllables: Vec<String>) -> (Vec<Stri
     let mut word2ph = Vec::new();
 
     for syllable in jyuping_syllables {
-        if PUNCTUATIONS.contains(syllable.chars().next().unwrap_or_default()) {
-            phones.push(syllable.clone());
-            word2ph.push(1);
-        } else if syllable == "_" {
+        if PUNCTUATIONS.contains(syllable.chars().next().unwrap_or_default()) || syllable == "_" {
             phones.push(syllable.clone());
             word2ph.push(1);
         } else {
             let (tone, syllable_without_tone) =
-                if syllable.chars().last().unwrap_or_default().is_digit(10) {
+                if syllable.chars().last().unwrap_or_default().is_ascii_digit() {
                     let tone = syllable.chars().last().unwrap().to_digit(10).unwrap() as i32;
                     (tone, &syllable[..syllable.len() - 1])
                 } else {
@@ -57,7 +54,7 @@ fn jyuping_to_initials_finals_tones(jyuping_syllables: Vec<String>) -> (Vec<Stri
 
             let mut found = false;
             for &initial in INITIALS {
-                if syllable_without_tone.starts_with(initial) {
+                if let Some(rest) = syllable_without_tone.strip_prefix(initial) {
                     if syllable_without_tone.starts_with("nga") {
                         let initial_part = &syllable_without_tone[..2];
                         let final_part = if syllable_without_tone[2..].is_empty() {
@@ -69,10 +66,10 @@ fn jyuping_to_initials_finals_tones(jyuping_syllables: Vec<String>) -> (Vec<Stri
                         phones.push(format!("Y{}{}", final_part, tone));
                         word2ph.push(2);
                     } else {
-                        let f = if syllable_without_tone[initial.len()..].is_empty() {
+                        let f = if rest.is_empty() {
                             &initial[initial.len() - 1..]
                         } else {
-                            &syllable_without_tone[initial.len()..]
+                            rest
                         };
                         phones.push(format!("Y{}", initial));
                         phones.push(format!("Y{}{}", f, tone));

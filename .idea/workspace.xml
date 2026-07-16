@@ -18,10 +18,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ce08510-ca9d-45cd-a9cc-24e15c9a93b2" name="更改" comment="Add comprehensive README files for desktop and mobile implementations">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/rust.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/rust.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/.cargo/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/.cargo/config.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/build.rs" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/build.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/error.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logits_sampler.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/logits_sampler.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/text.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/bert.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/bert.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/en/g2p_en.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/en/g2p_en.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/num.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/num.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/utils.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/utils.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/zh/g2pw.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/zh/g2pw.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/zh/jyutping_list.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/zh/jyutping_list.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/zh/split.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/zh/split.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text/zh/yue.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/text/zh/yue.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +68,12 @@
     &quot;assignee&quot;: &quot;mzdk100&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/mzdk100/GPT-SoVITS&quot;,
-    &quot;accountId&quot;: &quot;65557e06-0b15-4b2e-83ab-88003af6819e&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mzdk100/GPT-SoVITS",
+    "accountId": "87f3e49d-9770-4364-be25-da56c4966583"
   }
-}</component>
+}]]></component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="tuho4fr5" />
   </component>
@@ -72,28 +88,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Cargo.Run.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test text::tests::test_split_text.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/workspace/GPT-SoVITS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
-    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
-    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cargo.Run.executor": "Run",
+    "Cargo.Test text::tests::test_split_text.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "F:/GPT-SoVITS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
+    "org.rust.first.attach.projects": "true",
+    "settings.editor.selected.configurable": "editor.preferences.folding",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Cargo.Run">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" focusToolWindowBeforeRun="true">
       <option name="buildProfileId" value="dev" />
@@ -168,6 +187,7 @@
       <workItem from="1757907055682" duration="8980000" />
       <workItem from="1757964796182" duration="12998000" />
       <workItem from="1757980127689" duration="10981000" />
+      <workItem from="1784220962905" duration="4318000" />
     </task>
     <task id="LOCAL-00001" summary="初始化项目结构及移动端推理实现">
       <option name="closed" value="true" />

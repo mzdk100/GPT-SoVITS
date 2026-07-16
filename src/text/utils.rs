@@ -61,11 +61,11 @@ pub fn argmax_2d(tensor: &ArrayView<f32, IxDyn>) -> (usize, usize) {
 
     for i in 0..tensor.shape()[0] {
         for j in 0..tensor.shape()[1] {
-            if let Some(value) = tensor.get((i, j).into_dimension()) {
-                if *value > max_value {
-                    max_value = *value;
-                    max_index = (i, j);
-                }
+            if let Some(value) = tensor.get((i, j).into_dimension())
+                && *value > max_value
+            {
+                max_value = *value;
+                max_index = (i, j);
             }
         }
     }

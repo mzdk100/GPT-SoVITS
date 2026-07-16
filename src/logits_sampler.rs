@@ -105,7 +105,7 @@ impl Sampler {
     /// * `vocab_size`: The size of the vocabulary, used to pre-allocate buffers for efficiency.
     pub fn new(vocab_size: usize) -> Self {
         Self {
-            rng: StdRng::from_os_rng(),
+            rng: StdRng::from_rng(&mut rand::rng()),
             probs: Vec::with_capacity(vocab_size),
         }
     }
@@ -185,31 +185,31 @@ impl Sampler {
         }
 
         // --- Top-K Filtering (Optimized O(V) selection) ---
-        if let Some(k) = params.top_k {
-            if k > 0 && k < candidates.len() {
-                candidates.select_nth_unstable_by(k - 1, |a, b| {
-                    b.1.partial_cmp(&a.1).unwrap_or(Ordering::Equal)
-                });
-                candidates.truncate(k);
-            }
+        if let Some(k) = params.top_k
+            && k > 0
+            && k < candidates.len()
+        {
+            candidates.select_nth_unstable_by(k - 1, |a, b| {
+                b.1.partial_cmp(&a.1).unwrap_or(Ordering::Equal)
+            });
+            candidates.truncate(k);
         }
 
         // --- Top-P (Nucleus) Filtering (on at most K candidates) ---
-        if let Some(p) = params.top_p {
-            if p < 1.0 {
-                candidates
-                    .sort_unstable_by(|a, b| b.1.partial_cmp(&a.1).unwrap_or(Ordering::Equal));
-                let mut cum_prob = 0.0;
-                let mut cutoff = candidates.len();
-                for (i, &(_, prob)) in candidates.iter().enumerate() {
-                    cum_prob += prob;
-                    if cum_prob >= p {
-                        cutoff = i + 1;
-                        break;
-                    }
+        if let Some(p) = params.top_p
+            && p < 1.0
+        {
+            candidates.sort_unstable_by(|a, b| b.1.partial_cmp(&a.1).unwrap_or(Ordering::Equal));
+            let mut cum_prob = 0.0;
+            let mut cutoff = candidates.len();
+            for (i, &(_, prob)) in candidates.iter().enumerate() {
+                cum_prob += prob;
+                if cum_prob >= p {
+                    cutoff = i + 1;
+                    break;
                 }
-                candidates.truncate(cutoff);
             }
+            candidates.truncate(cutoff);
         }
 
         // --- Final Sampling ---

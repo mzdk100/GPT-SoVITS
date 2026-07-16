@@ -1,2 +1,5 @@
 [env.ORT_LIB_LOCATION]
 value="libs/arm64-v8a"
+
+[env.ORT_PREFER_DYNAMIC_LINK]
+value = "1"

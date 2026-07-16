@@ -61,7 +61,7 @@ impl G2PW {
         }
     }
 
-    pub fn g2p<'s>(&mut self, text: &'s str) -> Vec<G2PWOut> {
+    pub fn g2p(&mut self, text: &str) -> Vec<G2PWOut> {
         if self.model.is_some() && self.tokenizers.is_some() {
             self.get_pinyin_ml(text)
                 .unwrap_or(self.simple_get_pinyin(text))
@@ -72,7 +72,7 @@ impl G2PW {
 
     pub fn simple_get_pinyin(&self, text: &str) -> Vec<G2PWOut> {
         let mut pre_data = vec![];
-        for (_, c) in text.chars().enumerate() {
+        for c in text.chars() {
             if let Some(mono) = DICT_MONO_CHARS.get(&c) {
                 pre_data.push(G2PWOut::Pinyin(mono.phone.clone()));
             } else if let Some(poly) = DICT_POLY_CHARS.get(&c) {
@@ -84,7 +84,7 @@ impl G2PW {
         pre_data
     }
 
-    fn get_pinyin_ml<'s>(&mut self, text: &'s str) -> Result<Vec<G2PWOut>, GSVError> {
+    fn get_pinyin_ml(&mut self, text: &str) -> Result<Vec<G2PWOut>, GSVError> {
         let c = self.tokenizers.as_ref().unwrap().encode(text, true)?;
         let input_ids = c.get_ids().iter().map(|x| *x as i64).collect::<Vec<i64>>();
         let token_type_ids = vec![0i64; input_ids.len()];

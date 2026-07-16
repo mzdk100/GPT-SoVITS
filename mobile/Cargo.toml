@@ -2,6 +2,7 @@
 name = "gpt-sovits-mobile"
 version.workspace = true
 edition.workspace = true
+autotests = false
 publish = false
 
 [package.metadata.android]
@@ -12,8 +13,8 @@ application.has_code = false
 
 [package.metadata.android.sdk]
 min_sdk_version = 26
-target_sdk_version = 36
-max_sdk_version = 36
+target_sdk_version = 37
+max_sdk_version = 37
 
 [[package.metadata.android.application.activity]]
 name = "android.app.NativeActivity"
@@ -42,8 +43,5 @@ anyhow.workspace = true
 gpt-sovits.path = ".."
 ndk-glue = "0.7.0"
 mobile-entry-point = "0.1.1"
-rodio = {workspace = true, features = ["playback"] }
 tokio = {workspace = true,features = ["rt-multi-thread"]}
-
-[build-dependencies]
-cargo-emit = "0.2.1"
+voxudio = { workspace = true, features = ["device"] }

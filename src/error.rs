@@ -1,8 +1,8 @@
+//noinspection SpellCheckingInspection
 use {
     ndarray::ShapeError,
     ort::Error as OrtError,
     pest::error::Error as PestError,
-    rodio::decoder::DecoderError,
     std::{
         cmp::Ord,
         error::Error,
@@ -11,12 +11,12 @@ use {
         io::Error as IoError,
         time::SystemTimeError,
     },
+    voxudio::OperationError as VoxudioError,
 };
 
 #[derive(Debug)]
 pub enum GSVError {
     Box(Box<dyn Error + Send + Sync>),
-    Decoder(DecoderError),
     DecodeTokenFailed,
     GeneratePhonemesOrBertFeaturesFailed(String),
     InputEmpty,
@@ -35,6 +35,7 @@ pub enum GSVError {
     UnknownDigit(String),
     UnknownRuleInNum(String),
     UnknownRuleInSigns(String),
+    Voxudio(VoxudioError),
 }
 
 impl Error for GSVError {}
@@ -44,7 +45,6 @@ impl Display for GSVError {
         write!(f, "GSVError: ")?;
         match self {
             Self::Box(e) => Display::fmt(e, f),
-            Self::Decoder(e) => Display::fmt(e, f),
             Self::DecodeTokenFailed => {
                 write!(f, "DecodeTokenFailedError: Can't decode output audio.")
             }
@@ -55,7 +55,7 @@ impl Display for GSVError {
             ),
             Self::InputEmpty => write!(f, "InputEmptyError: Input data is empty."),
             Self::Io(e) => Display::fmt(e, f),
-            Self::Ort(e) => Display::fmt(e, f),
+            Self::Ort(e) => write!(f, "OrtError: {}", e),
             Self::Pest(s) => write!(f, "PestError: {}", s),
             Self::Shape(e) => Display::fmt(e, f),
             Self::SystemTime(e) => Display::fmt(e, f),
@@ -93,13 +93,17 @@ impl Display for GSVError {
             Self::UnknownRuleInSigns(s) => {
                 write!(f, "UnknownRuleInSignsError: Unknown rule in signs: {:?}", s)
             }
+            Self::Voxudio(e) => Display::fmt(e, f),
         }
     }
 }
 
-impl From<OrtError> for GSVError {
-    fn from(value: OrtError) -> Self {
-        Self::Ort(value)
+impl<R> From<OrtError<R>> for GSVError
+where
+    OrtError<R>: Display,
+{
+    fn from(value: OrtError<R>) -> Self {
+        Self::Pest(format!("{value}"))
     }
 }
 
@@ -136,8 +140,8 @@ where
     }
 }
 
-impl From<DecoderError> for GSVError {
-    fn from(value: DecoderError) -> Self {
-        Self::Decoder(value)
+impl From<VoxudioError> for GSVError {
+    fn from(value: VoxudioError) -> Self {
+        Self::Pest(format!("{value}"))
     }
 }

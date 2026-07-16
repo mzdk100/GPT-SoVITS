@@ -53,8 +53,7 @@ impl G2PEnModel {
         let input_id_len = input_ids.len();
         let input_ids_tensor =
             Tensor::from_array(Array::from_shape_vec((1, input_id_len), input_ids.clone())?)?;
-        let attention_mask_tensor =
-            Tensor::from_array(Array::from_elem((1, input_id_len), 1 as i64))?;
+        let attention_mask_tensor = Tensor::from_array(Array::from_elem((1, input_id_len), 1_i64))?;
         let encoder_outputs = self.encoder_model.run(inputs![
             "input_ids" => input_ids_tensor.clone(),
             "attention_mask" => attention_mask_tensor.clone()
@@ -124,12 +123,12 @@ impl G2pEn {
                     path.join("encoder_model.onnx"),
                     path.join("decoder_model.onnx"),
                 )?),
-                arpabet: arpabet,
+                arpabet,
             })
         } else {
             Ok(G2pEn {
                 model: None,
-                arpabet: arpabet,
+                arpabet,
             })
         }
     }
@@ -144,7 +143,7 @@ impl G2pEn {
                 let mut phonemes = Vec::new();
                 for word in words {
                     let phones = model.get_phoneme(word)?;
-                    phonemes.extend(phones.into_iter());
+                    phonemes.extend(phones);
                 }
                 Ok(phonemes)
             }

@@ -14,9 +14,9 @@ use {
         session::{RunOptions, Session},
         value::{Tensor, TensorRef},
     },
-    rodio::{Source, buffer::SamplesBuffer, decoder::Decoder, source::UniformSourceIterator},
-    std::{io::Cursor, path::Path, time::SystemTime},
+    std::{path::Path, time::SystemTime},
     tokio::fs::read,
+    voxudio::{decode_audio, resample_dynamic},
 };
 pub use {
     error::*,
@@ -69,6 +69,7 @@ impl GptSoVitsModel {
     /// if bert path is none, the speech speed in chinese may become worse
     /// if g2pw path is none, the chinese speech quality may be worse
     /// g2p_en is still experimental, english speak quality may not be better because of bugs
+    #[allow(clippy::too_many_arguments)]
     pub fn new<P>(
         sovits_path: P,
         ssl_path: P,
@@ -157,6 +158,7 @@ impl GptSoVitsModel {
     }
 
     /// Efficiently runs the streaming decoder loop with a pre-allocated, resizable KV cache.
+    #[allow(clippy::too_many_arguments)]
     async fn run_t2s_s_decoder_loop(
         &mut self,
         sampler: &mut Sampler,
@@ -455,7 +457,7 @@ impl GptSoVitsModel {
         let output_audio = outputs["audio"].try_extract_array::<f32>()?;
         let (mut audio, _) = output_audio.into_owned().into_raw_vec_and_offset();
         for sample in &mut audio {
-            *sample = *sample * 4.0;
+            *sample *= 4.0;
         }
         // Find the maximum absolute value in the audio
         let max_audio = audio
@@ -489,33 +491,19 @@ where
     }
 }
 
-fn resample_audio(input: &[f32], in_rate: u32, out_rate: u32) -> Vec<f32> {
-    if in_rate == out_rate {
-        return input.to_owned();
-    }
-
-    UniformSourceIterator::new(SamplesBuffer::new(1, in_rate, input), 1, out_rate).collect()
-}
-
 async fn read_and_resample_audio<P>(path: P) -> Result<(Array2<f32>, Array2<f32>), GSVError>
 where
     P: AsRef<Path>,
 {
-    let data = Cursor::new(read(path).await?);
-    let decoder = Decoder::new(data)?;
-    let sample_rate = decoder.sample_rate();
-    let samples = if decoder.channels() == 1 {
-        decoder.collect::<Vec<_>>()
-    } else {
-        UniformSourceIterator::new(decoder, 1, sample_rate).collect()
-    };
-
-    // Resample to 16kHz and 32kHz
-    let mut ref_audio_16k = resample_audio(&samples, sample_rate, 16000);
-    let ref_audio_32k = resample_audio(&samples, sample_rate, 32000);
+    let data = read(path).await?;
+    // Decode to 32kHz mono
+    let (samples, _channels) = decode_audio::<32000, f32, _>(data, true)?;
+    // Resample from 32kHz to 16kHz mono
+    let mut ref_audio_16k = resample_dynamic(&samples, 32000, 16000, 1, 1)?;
+    let ref_audio_32k = samples;
 
     // Prepend 0.3 seconds of silence
-    let silence_16k = vec![0.0; (0.3 * 16000.0) as usize]; // 8000 samples for 16kHz
+    let silence_16k = vec![0.0; (0.3 * 16000.0) as usize]; // 4800 samples for 16kHz
 
     ref_audio_16k.splice(0..0, silence_16k);
 

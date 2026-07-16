@@ -1,6 +1,5 @@
 use log::{debug, warn};
 use regex::Regex;
-use serde_json;
 use std::{collections::HashMap, sync::LazyLock};
 
 static TONED: LazyLock<HashMap<u32, String>> = LazyLock::new(load_data);
@@ -74,16 +73,13 @@ fn load_data() -> HashMap<u32, String> {
     let contents = include_str!("jyutping_dictionary.json");
 
     let table: HashMap<String, String> =
-        serde_json::from_str(&contents).expect("Failed to parse JSON");
+        serde_json::from_str(contents).expect("Failed to parse JSON");
 
     for (code, jyutping) in table {
         let jyutping = jyutping.split_whitespace().next().unwrap_or("").to_string();
         let code_int = u32::from_str_radix(&code, 16).expect("Failed to parse code as u32");
         toned.insert(code_int, format!(" {} ", jyutping));
-        toneless.insert(
-            code_int,
-            format!(" {} ", jyutping[..jyutping.len() - 1].to_string()),
-        );
+        toneless.insert(code_int, format!(" {} ", &jyutping[..jyutping.len() - 1]));
     }
 
     // Return toned for TONED and toneless for TONELESS

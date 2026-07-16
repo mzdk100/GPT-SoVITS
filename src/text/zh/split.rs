@@ -292,7 +292,7 @@ pub fn split_zh_ph(ph: &str) -> (&str, &str) {
 pub fn split_zh_ph_(ph: &str) -> (&str, &str) {
     if ph.starts_with("zh") || ph.starts_with("ch") || ph.starts_with("sh") {
         ph.split_at(2)
-    } else if ph.chars().next().map_or(false, |c| CONSONANTS.contains(&c)) {
+    } else if ph.chars().next().is_some_and(|c| CONSONANTS.contains(&c)) {
         ph.split_at(1)
     } else {
         (ph, ph)

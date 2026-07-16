@@ -11,5 +11,5 @@ path = "main.rs"
 [dependencies]
 anyhow.workspace = true
 gpt-sovits.path = ".."
-rodio = {workspace = true,features = ["playback"]}
 tokio = {workspace = true, features = ["macros", "rt-multi-thread"] }
+voxudio = { workspace = true, features = ["device"] }

@@ -14,9 +14,9 @@ pub mod zh {
     fn parse_pn(pair: Pair<Rule>, dst_string: &mut String) -> Result<(), GSVError> {
         assert_eq!(pair.as_rule(), Rule::pn);
         match pair.as_str() {
-            "+" => dst_string.push_str("加"),
-            "-" => dst_string.push_str("减"),
-            "*" | "×" => dst_string.push_str("乘"),
+            "+" => dst_string.push('加'),
+            "-" => dst_string.push('减'),
+            "*" | "×" => dst_string.push('乘'),
             "/" | "÷" => dst_string.push_str("除以"),
             "=" => dst_string.push_str("等于"),
             _ => return Err(GSVError::UnknownOperator(pair.as_str().to_owned())),
@@ -27,8 +27,8 @@ pub mod zh {
     fn parse_flag(pair: Pair<Rule>, dst_string: &mut String) -> Result<(), GSVError> {
         assert_eq!(pair.as_rule(), Rule::flag);
         match pair.as_str() {
-            "+" => dst_string.push_str("正"),
-            "-" => dst_string.push_str("负"),
+            "+" => dst_string.push('正'),
+            "-" => dst_string.push('负'),
             _ => return Err(GSVError::UnknownFlag(pair.as_str().to_owned())),
         }
         Ok(())
@@ -99,7 +99,7 @@ pub mod zh {
         }
 
         if result.is_empty() {
-            dst_string.push_str("零");
+            dst_string.push('零');
         } else {
             if result.ends_with("零") {
                 result.truncate(result.len() - "零".len());
@@ -118,9 +118,9 @@ pub mod zh {
         if let Some(i_part) = inner.next() {
             parse_integer(i_part, dst_string, true)?;
         } else {
-            dst_string.push_str("零");
+            dst_string.push('零');
         }
-        dst_string.push_str("点");
+        dst_string.push('点');
         parse_integer(f_part, dst_string, false)?;
 
         Ok(())
@@ -176,7 +176,7 @@ pub mod zh {
     fn parse_link(pair: Pair<Rule>, dst_string: &mut String) -> Result<(), GSVError> {
         assert_eq!(pair.as_rule(), Rule::link);
         if pair.as_str() == "-" {
-            dst_string.push_str("杠");
+            dst_string.push('杠');
         }
         Ok(())
     }
@@ -560,8 +560,8 @@ impl NumSentence {
 
 pub fn is_numeric(p: &str) -> bool {
     p.chars().any(|c| c.is_numeric())
-        || p.contains(&NUM_OP)
-        || p.to_lowercase().contains(&[
+        || p.contains(NUM_OP)
+        || p.to_lowercase().contains([
             'α', 'β', 'γ', 'δ', 'ε', 'ζ', 'η', 'θ', 'ι', 'κ', 'λ', 'μ', 'ν', 'ξ', 'ο', 'π', 'ρ',
             'σ', 'ς', 'τ', 'υ', 'φ', 'χ', 'ψ', 'ω',
         ])

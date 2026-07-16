@@ -1,7 +1,7 @@
 use {
     gpt_sovits::{GSVError, GptSoVitsModel, LangId, SamplingParams, StreamExt},
-    rodio::{buffer::SamplesBuffer, OutputStreamBuilder, Sink},
     std::{path::Path, time::Instant},
+    voxudio::AudioPlayer,
 };
 
 async fn synth<P, S>(
@@ -9,7 +9,7 @@ async fn synth<P, S>(
     ref_audio_path: P,
     ref_text: S,
     text: S,
-    player: &Sink,
+    player: &mut AudioPlayer,
 ) -> Result<(), GSVError>
 where
     P: AsRef<Path>,
@@ -32,7 +32,7 @@ where
     while let Some(item) = stream.next().await {
         let item = item?;
         println!("{}", item.len());
-        player.append(SamplesBuffer::new(1, 32000, item));
+        player.write::<32000, f32>(&item, 1).await?;
     }
 
     Ok(())
@@ -40,9 +40,8 @@ where
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    let output_stream = OutputStreamBuilder::from_default_device()?.open_stream()?;
-    let player = Sink::connect_new(output_stream.mixer());
-    player.play();
+    let mut player = AudioPlayer::new()?;
+    player.play()?;
 
     // 模型下载地址：
     // 1. https://huggingface.co/mikv39/gpt-sovits-onnx-custom
@@ -70,7 +69,7 @@ async fn main() -> anyhow::Result<()> {
         assets_dir.join("bajie.mp3"),
         "看你得意地，一听说炸妖怪，就跟见你外公似的你看！",
         text,
-        &player,
+        &mut player,
     )
     .await?;
     synth(
@@ -78,7 +77,7 @@ async fn main() -> anyhow::Result<()> {
         assets_dir.join("ref.wav"),
         "格式化，可以给自家的奶带来大量的。",
         text,
-        &player,
+        &mut player,
     )
     .await?;
     synth(
@@ -86,10 +85,12 @@ async fn main() -> anyhow::Result<()> {
         assets_dir.join("hello_in_cn.mp3"),
         "你好啊，我是智能语音助手。",
         text,
-        &player,
+        &mut player,
     )
     .await?;
-    player.sleep_until_end();
+
+    // 等待播放缓冲区中的剩余数据播完
+    tokio::time::sleep(std::time::Duration::from_secs(1)).await;
 
     Ok(())
 }

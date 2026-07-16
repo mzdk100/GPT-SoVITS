@@ -20,7 +20,7 @@ impl BertModel {
             model = Some(create_onnx_cpu_session(path)?);
         }
         Ok(Self {
-            model: model,
+            model,
             tokenizers: Some(Arc::new(Tokenizer::from_str(BERT_TOKENIZER).unwrap())),
         })
     }

@@ -80,16 +80,16 @@ pub fn split_text(text: &str) -> Vec<String> {
                     if next_char == ' ' {
                         let mut peek_iter = chars.clone();
                         peek_iter.next(); // Skip the space
-                        if let Some(after_space) = peek_iter.next() {
-                            if after_space.is_uppercase() {
-                                // This is likely an abbreviation, continue
-                                continue;
-                            }
+                        if let Some(after_space) = peek_iter.next()
+                            && after_space.is_uppercase()
+                        {
+                            // This is likely an abbreviation, continue
+                            continue;
                         }
                     }
 
                     // Case 2: Decimal number like "1.0版本" - next char is digit
-                    if next_char.is_digit(10) {
+                    if next_char.is_ascii_digit() {
                         continue;
                     }
 
@@ -100,12 +100,11 @@ pub fn split_text(text: &str) -> Vec<String> {
                 }
             }
             // For other punctuation, check if next character is lowercase letter
-            else if matches!(c, '!' | '?' | ';') {
-                if let Some(&next_char) = chars.peek() {
-                    if next_char.is_lowercase() {
-                        continue;
-                    }
-                }
+            else if matches!(c, '!' | '?' | ';')
+                && let Some(&next_char) = chars.peek()
+                && next_char.is_lowercase()
+            {
+                continue;
             }
 
             let trimmed = current.trim();
@@ -194,6 +193,8 @@ pub struct TextProcessor {
     pub bert_model: BertModel,
 }
 
+type PhoneBert = (String, Vec<i64>, Array2<f32>);
+
 impl TextProcessor {
     pub fn new(g2pw: G2PW, g2p_en: G2pEn, bert_model: BertModel) -> Result<Self, GSVError> {
         Ok(Self {
@@ -208,7 +209,7 @@ impl TextProcessor {
         &mut self,
         text: &str,
         lang_id: LangId,
-    ) -> Result<Vec<(String, Vec<i64>, Array2<f32>)>, GSVError> {
+    ) -> Result<Vec<PhoneBert>, GSVError> {
         if text.trim().is_empty() {
             return Err(GSVError::InputEmpty);
         }
@@ -418,7 +419,7 @@ impl PhoneBuilder {
 
     fn extend_text(&mut self, jieba: &Jieba, text: &str) {
         let tokens: Vec<&str> = if str_is_chinese(text) {
-            jieba.cut(text, true).into_iter().collect()
+            jieba.cut(text, true).into_iter().map(|t| t.word).collect()
         } else {
             TOKEN_REGEX.find_iter(text).map(|m| m.as_str()).collect()
         };
@@ -528,12 +529,12 @@ impl PhoneBuilder {
                 if matches!(en.text.last(), Some(EnWord::Punctuation(p)) if *p == "'" || *p == "-")
                 {
                     let p = en.text.pop().unwrap();
-                    if let Some(EnWord::Word(last_word)) = en.text.last_mut() {
-                        if let EnWord::Punctuation(p_str) = p {
-                            last_word.push_str(p_str);
-                            last_word.push_str(word);
-                            return;
-                        }
+                    if let Some(EnWord::Word(last_word)) = en.text.last_mut()
+                        && let EnWord::Punctuation(p_str) = p
+                    {
+                        last_word.push_str(p_str);
+                        last_word.push_str(word);
+                        return;
                     }
                     en.text.push(p); // Push back if not applicable
                 }
@@ -556,11 +557,8 @@ impl PhoneBuilder {
             zh.text.push_str(word);
             match dict::zh_word_dict(word) {
                 Some(phones) => {
-                    zh.phones.extend(
-                        phones
-                            .into_iter()
-                            .map(|p: &String| G2PWOut::Pinyin(p.clone())),
-                    );
+                    zh.phones
+                        .extend(phones.iter().map(|p: &String| G2PWOut::Pinyin(p.clone())));
                 }
                 None => {
                     zh.phones
